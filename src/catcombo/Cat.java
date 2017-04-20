@@ -10,8 +10,8 @@ public class Cat {
 	
 	Cat(String line) {
 		String tokens[] = line.split(",");
-    		this.id = Integer.parseInt(tokens[0]);
-    		for (int i = 1; i < tokens.length; i++) {
+		this.id = Integer.parseInt(tokens[0]);
+		for (int i = 1; i < tokens.length; i++) {
 			names.add(tokens[i]);
 		}
 	}

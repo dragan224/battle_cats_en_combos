@@ -13,12 +13,12 @@ public class ComboComparator implements Comparator<Combo> {
 
 	@Override
 	public int compare(Combo A, Combo B) {
-		int form1 = A.contains(name);
-		int form2 = B.contains(name);
+		int effect1 = A.effect();
+		int effect2 = B.effect();
 		
-		if (form1 < form2) {
+		if (effect1 < effect2) {
 			return -1;
-		} else if (form1 > form2) {
+		} else if (effect1 > effect2) {
 			return 1;
 		} else {
 			int strength_a = A.strength();

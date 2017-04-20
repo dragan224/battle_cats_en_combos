@@ -13,6 +13,10 @@ public class Combo {
 	private int effect;
 	private int strength;
 	
+	public int effect() {
+		return effect;
+	}
+	
 	public int strength() {
 		return strength;
 	}
@@ -52,13 +56,15 @@ public class Combo {
 		try {
 			InputStream input = (InputStream) ClassLoader.class.getResourceAsStream("/" + cat_file_name);
 			BufferedReader br = new BufferedReader(new InputStreamReader(input));
-			String line = br.readLine();
+		    String line = br.readLine();
 
-			while (line != null) {
-				cats.put(Integer.parseInt(line.split(",")[0]), line);
-				line = br.readLine();
-			}
-			br.close();
+		    while (line != null) {
+		    	
+		    	cats.put(Integer.parseInt(line.split(",")[0]), line);
+		    	
+		        line = br.readLine();
+		    }
+		    br.close();
 		} catch (Exception e) {
 			e.printStackTrace(System.out);
 		}
@@ -67,18 +73,18 @@ public class Combo {
 		try {
 			InputStream input = (InputStream) ClassLoader.class.getResourceAsStream("/" + combo_file_name);
 			BufferedReader br = new BufferedReader(new InputStreamReader(input));
-			String line = br.readLine();
+		    String line = br.readLine();
 
-			while (line != null) {
+		    while (line != null) {
 		    	
-				String tokens[] = line.split(",");
+		    	String tokens[] = line.split(",");
 
-				ArrayList<Cat> cats_in_combo = new ArrayList<>();
-				ArrayList<Integer> forms_in_combo = new ArrayList<>();
-				int effect = Integer.parseInt(tokens[tokens.length - 3]);
-				int strength = Integer.parseInt(tokens[tokens.length - 2]);
+		    	ArrayList<Cat> cats_in_combo = new ArrayList<>();
+		    	ArrayList<Integer> forms_in_combo = new ArrayList<>();
+		    	int effect = Integer.parseInt(tokens[tokens.length - 3]);
+		    	int strength = Integer.parseInt(tokens[tokens.length - 2]);
 		    	
-				for (int i = 2; i <= 10; i += 2) {
+		    	for (int i = 2; i <= 10; i += 2) {
 		    		int cat = Integer.parseInt(tokens[i]);
 		    		int form = Integer.parseInt(tokens[i+1]);
 		    		

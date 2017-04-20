@@ -26,8 +26,11 @@ public class MainWindow extends JFrame {
 	
 	static int INPUT_COLUMN_WIDTH = 20;
 	
-	static int WINDOW_WIDTH = 900;
+	// Measurements are in pixels.
+	static int WINDOW_WIDTH = 900; 
 	static int WINDOW_HEIGHT = 600;
+	static int TABLE_ROW_HEIGHT = 23;
+	
 	
 	private Matcher matcher;
 	private JComboBox<String> effects = new JComboBox<>();
@@ -78,6 +81,7 @@ public class MainWindow extends JFrame {
 		output.getColumnModel().getColumn(0).setPreferredWidth(WINDOW_WIDTH - 365);
 		output.getColumnModel().getColumn(1).setPreferredWidth(255);
 		output.getColumnModel().getColumn(2).setPreferredWidth(90);
+		output.setRowHeight(TABLE_ROW_HEIGHT);
 	}
 	
 	private void display(String name, String effect, String strength) {
@@ -136,32 +140,36 @@ public class MainWindow extends JFrame {
 			JPanel bot = new JPanel();
 			JScrollPane scroll = new JScrollPane(output); 
 			scroll.setPreferredSize(new Dimension(WINDOW_WIDTH - 20, WINDOW_HEIGHT - 75));
-			 
+			
+			Color background_color = new Color(240, 240, 240);
 			headerRenderer = new DefaultTableCellRenderer() {
 				@Override
 				public Component getTableCellRendererComponent(JTable table, Object
 						value, boolean isSelected, boolean hasFocus, int row, int column) {
-					
+	                	
 					super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
-					setBackground(new Color(240, 240, 240));
+					setBackground(background_color);
 					Border border = BorderFactory.createLineBorder(Color.black);
 					setHorizontalAlignment(JLabel.CENTER);
 					setBorder(border);
 					return this;
-				}
+	           	 }
 			};
 			
 			columnRenderer = new DefaultTableCellRenderer() {
 				@Override
 				public Component getTableCellRendererComponent(JTable table, Object
 						value, boolean isSelected, boolean hasFocus, int row, int column) {
-					
+	                	
 					super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
+					Border border = BorderFactory.createMatteBorder(0, 0, 1, 0, background_color);
+					setBorder(border);
+					
 					setHorizontalAlignment(JLabel.CENTER);
 					return this;
-				}
+	           	 }
 			};
 			
 			renderTable();
