@@ -70,7 +70,7 @@ public class MainWindow extends JFrame {
 		}
 	}
 	
-	void renderTable() {
+	private void renderTable() {
 		for (int i = 0; i < 3; i++) {
 			output.getColumnModel().getColumn(i).setCellRenderer(columnRenderer);
 		}
