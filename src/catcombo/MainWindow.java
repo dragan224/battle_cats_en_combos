@@ -139,31 +139,27 @@ public class MainWindow extends JFrame {
 			 
 			headerRenderer = new DefaultTableCellRenderer() {
 				@Override
-	            public Component getTableCellRendererComponent(JTable table, Object
-	                value, boolean isSelected, boolean hasFocus, int row, int column) {
-	                super.getTableCellRendererComponent(
-	                    table, value, isSelected, hasFocus, row, column);
+				public Component getTableCellRendererComponent(JTable table, Object
+						value, boolean isSelected, boolean hasFocus, int row, int column) {
+	                		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
-	                setBackground(new Color(240, 240, 240));
-	                Border border = BorderFactory.createLineBorder(Color.black);
-	                setHorizontalAlignment(JLabel.CENTER);
-	                setBorder(border);
-	                return this;
-	            }
+					setBackground(new Color(240, 240, 240));
+					Border border = BorderFactory.createLineBorder(Color.black);
+					setHorizontalAlignment(JLabel.CENTER);
+					setBorder(border);
+					return this;
+	           	 	}
 			};
 			
 			columnRenderer = new DefaultTableCellRenderer() {
 				@Override
-	            public Component getTableCellRendererComponent(JTable table, Object
-	                value, boolean isSelected, boolean hasFocus, int row, int column) {
-	                super.getTableCellRendererComponent(
-	                    table, value, isSelected, hasFocus, row, column);
+				public Component getTableCellRendererComponent(JTable table, Object
+						value, boolean isSelected, boolean hasFocus, int row, int column) {
+	                		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
-	                Border border = BorderFactory.createEmptyBorder();
-	                setHorizontalAlignment(JLabel.CENTER);
-	                if (column % 2 == 0) setBorder(border);
-	                return this;
-	            }
+					setHorizontalAlignment(JLabel.CENTER);
+					return this;
+	           	 	}
 			};
 			
 			renderTable();
