@@ -149,7 +149,7 @@ public class MainWindow extends JFrame {
 					setHorizontalAlignment(JLabel.CENTER);
 					setBorder(border);
 					return this;
-	           	 	}
+				}
 			};
 			
 			columnRenderer = new DefaultTableCellRenderer() {
@@ -161,7 +161,7 @@ public class MainWindow extends JFrame {
 	                
 					setHorizontalAlignment(JLabel.CENTER);
 					return this;
-	           	 	}
+				}
 			};
 			
 			renderTable();
