@@ -29,7 +29,6 @@ public class MainWindow extends JFrame {
 	static int WINDOW_WIDTH = 900;
 	static int WINDOW_HEIGHT = 600;
 	
-	
 	private Matcher matcher;
 	private JComboBox<String> effects = new JComboBox<>();
 	private JComboBox<String> strengths = new JComboBox<>();
