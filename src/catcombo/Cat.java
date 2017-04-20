@@ -22,9 +22,7 @@ public class Cat {
 		
 		for (String name: names) {
 			String name_char_only = name.replaceAll("[^A-Za-z]+", "");
-			if (name_char_only.toLowerCase().equals(other_name_char_only.toLowerCase())) {
-				return true;
-			}
+			return EditDistance.equals(name_char_only.toLowerCase(), other_name_char_only.toLowerCase());
 		}
 		
 		return false;
