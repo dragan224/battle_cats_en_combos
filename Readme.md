@@ -9,3 +9,5 @@ http://imgur.com/xVtogiN
 http://imgur.com/Tr9HeGZ
 
 Runnable .jar version - https://www.dropbox.com/s/nz8hsmmbt6w7pe4/BCEN_combos.jar?dl=0
+
+Compile and run Main.java
