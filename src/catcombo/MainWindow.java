@@ -141,6 +141,7 @@ public class MainWindow extends JFrame {
 				@Override
 				public Component getTableCellRendererComponent(JTable table, Object
 						value, boolean isSelected, boolean hasFocus, int row, int column) {
+					
 					super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
 					setBackground(new Color(240, 240, 240));
@@ -155,6 +156,7 @@ public class MainWindow extends JFrame {
 				@Override
 				public Component getTableCellRendererComponent(JTable table, Object
 						value, boolean isSelected, boolean hasFocus, int row, int column) {
+					
 					super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	                
 					setHorizontalAlignment(JLabel.CENTER);
