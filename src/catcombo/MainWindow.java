@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.HashMap;
 
 import javax.swing.BorderFactory;
@@ -36,7 +38,6 @@ public class MainWindow extends JFrame {
 	private JComboBox<String> effects = new JComboBox<>();
 	private JComboBox<String> strengths = new JComboBox<>();
 	private JTextField input = new JTextField(INPUT_COLUMN_WIDTH);
-	private JButton search = new JButton("Search");
 	private JButton reset = new JButton("Reset");
 	
 	private DefaultTableCellRenderer headerRenderer;
@@ -103,6 +104,7 @@ public class MainWindow extends JFrame {
 			addItems(effects, Matcher.effects);
 			addItems(strengths, Matcher.strengths);
 			
+			
 			ActionListener listener = new ActionListener() {
 				
 				@Override
@@ -122,15 +124,30 @@ public class MainWindow extends JFrame {
 				}
 			});
 			
+			input.addKeyListener(new KeyListener() {
+				
+				@Override
+				public void keyTyped(KeyEvent e) {
+					// TODO Auto-generated method stub	
+				}
+				
+				@Override
+				public void keyReleased(KeyEvent e) {
+					display(input.getText(), (String) effects.getSelectedItem(), (String) strengths.getSelectedItem());
+				}
+				
+				@Override
+				public void keyPressed(KeyEvent e) {				
+				}
+				
+			});
 			effects.addActionListener(listener);
 			strengths.addActionListener(listener);
-			search.addActionListener(listener);
 			
 			top.add(new JLabel("Enter cat name:"));
 			top.add(input);
 			top.add(effects);
 			top.add(strengths);
-			top.add(search);
 			top.add(reset);
 			
 			this.add(top, BorderLayout.NORTH);
@@ -183,7 +200,7 @@ public class MainWindow extends JFrame {
 		}
 		
 		setResizable(false);
-		setTitle("Battle Cats EN - Cat Combos");
+		setTitle("Battle Cats EN - Cat Combos v1.1.0");
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

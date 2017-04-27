@@ -49,8 +49,18 @@ public class Combo {
 		}
 		return -1;
 	}
-
-
+	
+	public int minDist(String name) {
+		if (name.isEmpty()) {
+			return 0;
+		}
+		int minDist = Integer.MAX_VALUE;
+		for (Cat cat: cats) {
+			minDist = Math.min(minDist, cat.minDist(name));
+		}
+		return minDist;
+	}
+	
 	public static ArrayList<Combo> parseCombos(String combo_file_name, String cat_file_name) {
 		HashMap<Integer, String> cats = new HashMap<>();
 		try {

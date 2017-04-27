@@ -15,19 +15,30 @@ public class Cat {
 			names.add(tokens[i]);
 		}
 	}
+	
+	private String normalize(String name) {
+		return name.replaceAll("[^A-Za-z]+", "").toLowerCase();
+	}
 
 	public boolean equals(String other_name) {
 		if (other_name == null) return false;
-		String other_name_char_only = other_name.replaceAll("[^A-Za-z]+", "");
-		
+
 		for (String name: names) {
-			String name_char_only = name.replaceAll("[^A-Za-z]+", "");
-			if (EditDistance.equals(name_char_only.toLowerCase(), other_name_char_only.toLowerCase())) {
+			if (normalize(name).contains(normalize(other_name))) {
 				return true;
 			}
 		}
-		
 		return false;
+	}
+	
+	public int minDist(String other_name) {
+		int minDist = Integer.MAX_VALUE;
+		for (String name: names) {
+			minDist = Math.min(minDist, EditDistance.minDistance(
+						normalize(name), 
+						normalize(other_name)));
+		}
+		return minDist;
 	}
 	
 	public String getName(int idx) {

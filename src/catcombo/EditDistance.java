@@ -1,13 +1,7 @@
 package catcombo;
 
 public class EditDistance {
-	
-	public static int MISTAKE_THRESHOLD = 1; // Allowed number of mistakes when searching for cats
-	
-	public static boolean equals(String word1, String word2) {
-		return minDistance(word1, word2) <= MISTAKE_THRESHOLD;
-	}
-	
+
 	public static int minDistance(String word1, String word2) {
 		int len1 = word1.length();
 		int len2 = word2.length();
